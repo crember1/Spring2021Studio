@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+<style>
+h4 {
+  color:white;
+  font-weight: bold;
+  }
+</style>
+  
+  
+  
   <!-- Basic Page Needs–– -->
   <meta charset="utf-8">
-  <title>Your Project Title</title>
+  <title>MoD Assignment 1</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -25,6 +33,13 @@
   #map_1,#map_2,#map_3 {
     height: 500px;
   }
+    hr.line1{
+        border: solid rgba(50, 205, 50, 0.596); 
+              }
+    
+    
+    
+ 
   </style>
 
   <!-- D3 -->
@@ -34,32 +49,47 @@
   <link rel="icon" type="image/png" href="images/favicon.png">
 
 </head>
-<body>
+<body style="background-color:rgba(16, 52, 166, .80)">
 
   <div class="container one-bottom" style="margin-top: 50px">
     <div class="ten columns">
-      <h2>AAAAAAAAMobility on Demand Systems: Data-Driven Analysis, Simulation, Visualization</h2>
-      <p>
+      <h2 style="color:white">Charlotte Joy Rides: A Visual Representation</h2>
+      <p style="color:white">
         ARCH 6306/6050, DSBA 6010, ITIS 8010/6010: Wednesdays 6pm-8:30pm, Taught Online
         <br>
-        Dr. Dimitris Papanikolaou | dpapanik@uncc.edu | Urban Synergetics Lab | https://urbansynergeticslab.net
+        Anibal Robles | Brian Ferrell | Coral Rembert | Ryan Carriere |  
+        Charlottejoyrides | https://charlotte.bcycle.com
       </p>
+      <hr class="line1" width="100%">
     </div>
     <div class="two columns">
-      <a href="https://urbansynergeticslab.net/"><img class="scale-with-grid" src="img/LabLogo_dark_cropped.png"></a>
+      <a href="https://charlottejoyrides.com/" target="blank"><img class="scale-with-grid"
+        src="https://www.bcycle.com/images/librariesprovider44/default-album/joyrides_logo_white_and_green.png" height = "150" width = "300" style="float:right;"></a>
+    </div>
+    <div class="row">
+      <img class="four columns scale-with-grid quarter-bottom-rel" src="https://charlotteaxios-charlotteagenda.netdna-ssl.com/wp-content/uploads/2015/08/IMG_6486.jpg">
+      <img class="four columns scale-with-grid quarter-bottom-rel" src="https://bikeshare.cc/wp-content/uploads/2018/01/Charlotte_Bcycle_1.jpg">
+      <img class="four columns scale-with-grid quarter-bottom-rel" src="https://charlotteaxios-charlotteagenda.netdna-ssl.com/wp-content/uploads/2015/08/IMG_6489.jpg">
     </div>
     <div class="twelve columns">
-      <h3>Making an interactive map and plotting data on it</h3>
-      <h5>Use this template for your assignments in the class. This example uses <a href="https://docs.mapbox.com/mapbox.js/api/v3.3.1/">MapBox.js v3.3.1</a> and <a href="http://getskeleton.com/">Skeleton</a> boilerplate </h5>
+      <h3 style="color:white">Introduction</h3>
+      <h5 style="color:white">Bike sharing, an up-and-coming transportation style in various cities and urban areas, gives passengers easy access to move around town. 
+      In Charlotte, North Carolina, B-Cycle - a docked Bike Sharing MoD system - provides 343 bikes and 34 stations throughout the Queen City for easy transportation. 
+      Charlotte B-cycle launched in 2012 with only 200 bikes and 20 stations, but through various sponsorships, grants, and support over the last eight years, the company has grown to its current size. 
+      In addition to providing its services, Charlotte B-cycle also works to support the local community. 
+      When you see one of their bikes whizzing around town, you'll  notice each bike sports a piece of art created by a local artist.
+      <br> Below we have different map plots that display where our data is, where the docks are located, and accumulation trends that occur. </h5>
     </div>
   </div>
 
   <div class="container one-bottom" >
     <div class="twelve columns">
-      <h3>Example 1: Simple Map</h3>
-      <h5>
-        This example shows how to create a map using Leaflet.js and MapBox.js, and center the map at a specified pair of lat/long coordinates.
+      <h3 style="color:white">Location<h3>
+      <h4 > Fig. 1 </h4>                   
+      <h5 style="color:white">
+        The location of this data is Charlotte, NC.
       </h5>
+                         
     </div>
   </div>
 
@@ -68,9 +98,10 @@
 
   <div class="container one-bottom" >
     <div class="twelve columns">
-      <h3>Example 2: Map with displayed locations of stations from a dataset</h3>
-      <h5>
-        This example shows how to create a map using Leaflet.js/MapBox.js, and then plot a set of circles at the locations of the stations.
+      <h3 style="color:white">Station Locations</h3>
+      <h4 style="color:white">Fig. 2 </h4>                         
+      <h5 style="color:white">
+        B-Cycle locations of stations in Charlotte, NC with their station_ID, street address, number of bikes available, and number of docks available.
       </h5>
     </div>
   </div>
@@ -80,51 +111,77 @@
 
   <div class="container one-bottom" >
     <div class="twelve columns">
-      <h3>Example 3: Map with locations of stations with sizes proportional to their accumulation levels</h3>
-      <h5>
-        This example shows how to create a map using Leaflet.js/MapBox.js, plot a set of circles at the locations of the stations, and adjusts their diameters to be proportional to the inventory levels of the stations.
+      <h3 style="color:white">Station Accumulation Levels</h3>
+      <h4 style="color:white">Fig. 3 </h4>                         
+      <h5 style="color:white">
+        Accumulation levels of all B-Cycle stations located in Charlotte, NC. Represents total station availability. 
       </h5>
+      <h7 style="color: white;">
+        (Blue are electric bikes, Green are classic bikes, and Orange are smart bikes).
+      </h7>
     </div>
   </div>
 
 
   <div id="map_3" class="one-bottom"></div>
+                                                                     
 
 
   <div class="container one-bottom" >
-    <h3>Below is an array of images organized into rows and collumns</h3>
+    <h3 style="color:white">Below are maps that show relationships between B-Cycle station data and other attributes within the Charlotte area.</h3>
   </div>
 
+
+        
+   
   <div class="container one-bottom" >
-    <div class="row">
-      <img class="four columns scale-with-grid quarter-bottom-rel" src="img/img_640/640x480.jpg">
-      <img class="four columns scale-with-grid quarter-bottom-rel" src="img/img_640/640x480.jpg">
-      <img class="four columns scale-with-grid quarter-bottom-rel" src="img/img_640/640x480.jpg">
+      <h3 style="color:white">Zoning Information </h3>
+      <h4 style="color:white">Fig. 4 </h4>                             
+      <h5 style="color:white">This map shows the zoning information at any given B-Cycle station location. </h5>                                                    
+      <img class="container one-bottom" src="img/diagram 2-01.jpg">
+      <h3 style="color:white">CATS Bus Stop Locations </h3>
+      <h4 style="color:white">Fig. 5 </h4>                                                            
+      <h5 style="color:white">This map shows the relationship between the B-Cycle station locations and the CATS bus stop locations in Charlotte. </h5>                             
+      <img class="container one-bottom" src="img/1-01.jpg">                                                           
+      <h3 style="color:white">Bike Lane Locations </h3>
+      <h4 style="color:white">Fig. 6 </h4>                                                    
+      <h5 style="color:white">This map shows the relationship between current bike lane locations and B-Cycle station locations in Charlotte. </h5>                                                            
+      <img class="container one-bottom" src="img/diagram 3-01.jpg">
     </div>
-    <div class="row">
-      <img class="four columns scale-with-grid quarter-bottom-rel" src="img/img_640/640x480.jpg">
-      <img class="four columns scale-with-grid quarter-bottom-rel" src="img/img_640/640x480.jpg">
-      <img class="four columns scale-with-grid quarter-bottom-rel" src="img/img_640/640x480.jpg">
+  </div>
+  <div class="container one-bottom" >
+    <h2 style="color:white">Conclusion</h2>
+    <h5 style="color:white">Our maps express a story. In Fig. 3, most of the bike stations are located inside interstate 77 and 485 in the inner city accumulating the most usage combined, while there are less stations outside the city. We believe people in the inner city use these bikes to commute to and from work.
+      The stations south of Charlotte are in South End, a highly commercial area, which means people commute to and from entertainment and shopping.
+      In addition, in Fig. 5, the number of bus stations compared to bike stations are exponentially larger showing a greater interest in buses versus bikes. As you can see in the Fig. 6, there is not that many bike lanes in the city; therefore, most bikes will either be on the sidewalk or a part of traffic creating potiential self risk.</h5>
+  </div>
+    <div class="container one-bottom" >
+    <h5 style="color:white">Figure 4- The B-Cycle dock locations are located beside multiple building types, but the zoning data indicates that there are not many in the areas of center city with the most residential buildings. The multi-family and condo/townhome building types shown in purple do not have many bicycle docks within a few blocks,  while government and commercial buildings have the highest number of docks adjacent to them. B-Cycle seem to have located docks at high-density workplaces and commercial buildings to allow for commuters to use the bikes as a last-mile solution. Charlotte has several dockless bike-sharing systems in place, so these are not the only available bikes to commuters.</h5>
+    
+    <h5 style="color:white">Figure 5- Figure 5 shows the relationship between CATS bus stops and B-Cycle docks in center city. Almost all of the docks have bus stops within a block of them, which allows commuters to easily access the bike sharing service for shorter trips when they arrive in Uptown via bus. Customers pay an access fee for 24 hours and can check out bikes for up to 30 minutes without paying added fees. This model works for commuters who are making multiple short trips that do not require the use of the bus system.</h5>
+   
+    <h5 style="color:white">Figure 6- This map shows the relationship between current bike lane locations and B-Cycle station locations in Charlotte. Many of the roads in Charlotte do not have bike lanes, so most of the bike traffic will share the roads or sidewalks. As the use of MoD systems increases, car traffic in the city center should decrease, allowing for safer travel via bike, but the lack of dedicated lanes could deter people from using bicycles due to safety concerns.</h5>
     </div>
-  </div>
+    
+  <div class="container one-bottom" >
+    <h2 style="color:white">Discussion</h2>
+    <h4 style="color:white">Based off all given data, these are some suggestions we have to improve the relationships between stations and other attributes in Charlotte.</h4>
+    <h5 style="color:white">1. Expand B-Cycle station locations to more residential areas both within the city and outside of the city to give local commuters more mobility options.</h5>  
+    <h5 style="color:white">2. Coordinate future expansion of CATS bus stop locations to all B-Cycle station locations, giving those using the CATS bus system more mobility options going to and from the bus stops.</h5> 
+    <h5 style="color:white">3. Expand bike lane infrastructure within the city to reach more B-Cycle station locations.</h5> 
+    <h5 style="color:white">4. Coordinate future expansion of B-Cycle station locations with stop locations of other mobility services including the LYNX BlueLine and future options like the LYNX SilverLine.</h5> 
+  </div>                                 
 
   <div class="container one-bottom" >
-    <h2>This is Heading 2</h2>
-    <h3>This is Heading 3</h3>
-    <h4>This is Heading 4</h4>
-    <h5>This is Heading 5</h5>
-    <p>This is paragraph text p</p>
-  </div>
-
-  <div class="container one-bottom" >
-    <h2>Team & Contributions</h2>
-    <h5>Be very clear about how each student in your team contributed to this project</h5>
-    <h3>Student A</h3>
-    <h5>Student A contributed to this, this, and that.</h5>
-    <h3>Student B</h3>
-    <h5>Student B contributed to this, this, and that.</h5>
-    <h3>Student C</h3>
-    <h5>Student C contributed to this, this, and that.</h5>
+    <h2 style="color:white">Team & Contributions</h2>
+    <h3 style="color:white">Ryan Carriere</h3>
+    <h5 style="color:white">Ryan Carriere contributed to creating the formal heading section of the page with, introduction, popups/explanation in figure 2, page orientation, and conclusion. </h5>
+    <h3 style="color:white">Coral Rembert</h3>
+    <h5 style="color:white">Coral Rembert contributed to creating the Github page, finding online data, map style and data representation style (for Fig. 1-3), page organization, adding descriptions to maps, and discussion.</h5>
+    <h3 style="color:white">Anibal Robles</h3>
+    <h5 style="color:white">Anibal Robles contributed to merging the data files and finding how to make it work in Mapbox, helped in map representation, and bug fixes.</h5>
+    <h3 style="color:white">Brian Ferrell</h3>
+    <h5 style="color:white">Brian Ferrell contributed to creating diagrams with Mecklenburg county and B-Cycle data using GIS programs, webpage layout, research and conclusion. </h5>
   </div>
 
 
@@ -134,36 +191,52 @@
   L.mapbox.accessToken = 'pk.eyJ1IjoiZGltcCIsImEiOiJkRnlra3RjIn0.E9CTYzNUEx0yb3dcfV4SiA';
 
   var map_1 = L.mapbox.map('map_1')
-  .setView([35.2272,-80.8461], 9)
-  .addLayer(L.mapbox.styleLayer('mapbox://styles/dimp/citf6n01300692hmlxnnrv6wd'));
+  .setView([35.22732,-80.83827], 10)
+  .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/light-v10'));
   map_1
   .scrollWheelZoom.disable();
 
-
+                                   
+  var path_o = {
+        radius :  60,
+        color : d3.rgb(16,52,166).brighter(),
+        stroke: true,
+        weight : 1,
+        fill : true,
+        Color: d3.rgb(16,52,166).brighter(),
+      };
+                                   
+  L.circleMarker([35.22732,-80.8382], path_o).addTo(map_1)
+                                   
+                                   
   d3.json("mergedFiles.json", function(json) {
     console.log(json);
 
     var map_2 = L.mapbox.map('map_2')
-    .setView([35.2272,-80.8461], 12)
-    .addLayer(L.mapbox.styleLayer('mapbox://styles/dimp/citf6n01300692hmlxnnrv6wd'));
+    .setView([35.22732,-80.83827], 12)
+    .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/light-v10'));
     map_2
     .scrollWheelZoom.disable();
+                            
+  
 
     json.data.stations.forEach(function(station){
       station.lat = +station.lat;
       station.lng = +station.lon;
       var path_options = {
-        radius :  2,
-        color : d3.rgb(88,206,227).brighter(),
+        radius :  6,
+        color : d3.rgb(16,52,166).brighter(),
         stroke: true,
         weight : 1,
+        fill : true,
+        Color: d3.rgb(16,52,166).brighter(),
       };
-      L.circleMarker([station.lat, station.lon], path_options).addTo(map_2);
+      L.circleMarker([station.lat, station.lon], path_options).addTo(map_2).bindPopup("Station_ID: " + station.station_id + "<br>Address: </br>"+ station.address + "<br>Number of Bikes available: </br>" + station.num_bikes_available + "<br>Number of Docks available:</br>" + station.num_docks_available);
     });
 
     var map_3 = L.mapbox.map('map_3')
-    .setView([35.2272,-80.8461], 9)
-    .addLayer(L.mapbox.styleLayer('mapbox://styles/dimp/ck9mf0x8q3o521iojo2qmmp52'));
+    .setView([35.22732,-80.83827], 12)
+    .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/light-v10'));
     map_3
     .scrollWheelZoom.disable();
 
@@ -172,10 +245,28 @@
       station.lng = +station.lon;
       var inventory_level = station.num_bikes_available / (station.num_bikes_available+station.num_docks_available);
       var path_options = {
-        radius :  0.14 * (station.num_bikes_available + station.num_docks_available),
-        color : d3.rgb(88,206,227).brighter(),
+        radius :  0.5 * (station.num_bikes_available + station.num_docks_available),
+        color : d3.rgb(16,52,166).brighter(),
         fillColor : (function(){
-          return inventory_level > 0.5? d3.rgb(88,206,227) : d3.rgb(88,206,227).darker(2)
+          if(station.num_bikes_available_types.electric > 0) {
+            if(inventory_level > 0.5) {
+              return d3.rgb(16,52,166).darker(2)
+            }
+            return d3.rgb(16,52,166)
+          }
+          if(station.num_bikes_available_types.smart > 0) {
+            if(inventory_level > 0.5) {
+              return d3.rgb(245, 141, 66).darker(2)
+            }
+            return d3.rgb(245, 141, 66)
+          }
+          if(station.num_bikes_available_types.classic > 0) {
+            if(inventory_level > 0.5) {
+              return d3.rgb(38, 166, 16).darker(2)
+            }
+            return d3.rgb(38, 166, 16)
+          }
+          //return inventory_level > 0.5? d3.rgb(16,52,166) : d3.rgb(16,52,166).darker(2)
         })(),
         stroke: true,
         weight : 1,
