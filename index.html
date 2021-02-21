@@ -30,7 +30,7 @@
     height: 500px;
   }
     hr.line1{
-        border: solid rgba(50, 205, 50, 0.596); 
+        border: solid rgba(0, 0, 0, 0); 
               }
     
     
@@ -124,7 +124,7 @@
   L.mapbox.accessToken = 'pk.eyJ1IjoiZGltcCIsImEiOiJkRnlra3RjIn0.E9CTYzNUEx0yb3dcfV4SiA';
 
   var map_1 = L.mapbox.map('map_1')
-  .setView([35.21189,-80.8959], 10)
+  .setView([35.20435,-80.90125], 10)
   .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/light-v10'));
   map_1
   .scrollWheelZoom.disable();
@@ -139,7 +139,7 @@
         Color: d3.rgb(16,52,166).brighter(),
       };
                                    
-  L.circleMarker([35.22732,-80.8382], path_o).addTo(map_1)
+  L.circleMarker([35.20435,-80.90125], path_o).addTo(map_1)
                                    
                                    
   d3.json("mergedFiles.json", function(json) {
