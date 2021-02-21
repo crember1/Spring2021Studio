@@ -30,7 +30,7 @@
     height: 500px;
   }
     hr.line1{
-        border: solid rgba(0, 0, 0, 0); 
+        border: solid; 
               }
     
     
@@ -117,21 +117,20 @@
       <h3>Bike Lanes & Routes and Greenways</h3>                                                    
       <h5 style="color:white">This map shows the relationship between current bike lane locations and B-Cycle station locations in Charlotte. </h5>                                                            
       <img class="container one-bottom" src="img/diagram 3-01.jpg">
-  </div>
 
   <script>
 
   L.mapbox.accessToken = 'pk.eyJ1IjoiZGltcCIsImEiOiJkRnlra3RjIn0.E9CTYzNUEx0yb3dcfV4SiA';
 
   var map_1 = L.mapbox.map('map_1')
-  .setView([35.20435,-80.90125], 10)
+  .setView([35.20435,-80.90125], 12)
   .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/light-v10'));
   map_1
   .scrollWheelZoom.disable();
 
                                    
   var path_o = {
-        radius :  60,
+        radius :  40,
         color : d3.rgb(16,52,166).brighter(),
         stroke: true,
         weight : 1,
