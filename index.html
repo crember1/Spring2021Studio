@@ -49,7 +49,7 @@
 
   <div class="container one-bottom" style="margin-top: 50px">
     <div class="ten columns">
-      <h2>West Boulevard Corridor Transportation</h2>
+      <h2>West Boulevard Corridor Transportation Study</h2>
       <p>
         ARCH STUDIO
         <br>
@@ -72,50 +72,17 @@
 
 
   <div class="container one-bottom" >
-    <div class="twelve columns">
-      <h3>Bike Lanes</h3>                         
-      <h5>
-        There is a small amount of bike lanes located near 
-      </h5>
-    </div>
-  </div>
-
-  <div id="map_2" class="one-bottom"></div>
-
-
-  <div class="container one-bottom" >
-    <div class="twelve columns">
-      <h3>Suggested Bike Routes</h3>                        
-      <h5>
-        Suggested bike routes given by the City of Charlotte as part of the Charlotte Cycling Guide. 
-      </h5>
-    </div>
-  </div>
-
-
-  <div id="map_3" class="one-bottom"></div>
-                                                                     
-
-
-  <div class="container one-bottom" >
-    <h3 style="color:white">Below are maps that show relationships between B-Cycle station data and other attributes within the Charlotte area.</h3>
-  </div>
-
-
-        
-   
-  <div class="container one-bottom" >
-      <h3>Highways, Thoroughfares, and Interstate</h3>                             
-      <h5>This map shows the zoning information at any given B-Cycle station location. </h5>                                                    
+      <h3>Highways and Thoroughfares</h3>                             
+      <h5>Major traffic arteries surrounding the West Boulevard Corridor area. </h5>                                                    
       <img class="container one-bottom" src="img/diagram 2-01.jpg">
       <h3>CATS Bus System</h3>                                                            
-      <h5>This map shows the relationship between the B-Cycle station locations and the CATS bus stop locations in Charlotte. </h5>                             
+      <h5>Charlotte's bus system with routes and stops. </h5>                             
       <img class="container one-bottom" src="img/1-01.jpg">                                                           
       <h3>LYNX Lightrail System and Railroads</h3>                                                    
-      <h5 style="color:white">This map shows the relationship between current bike lane locations and B-Cycle station locations in Charlotte. </h5>                                                            
+      <h5>LYNX BlueLine, GoldLine, and Proposed SilverLine routes and stops.</h5>                                                            
       <img class="container one-bottom" src="img/diagram 3-01.jpg">
-      <h3>Bike Lanes & Routes and Greenways</h3>                                                    
-      <h5 style="color:white">This map shows the relationship between current bike lane locations and B-Cycle station locations in Charlotte. </h5>                                                            
+      <h3>Bike Routes and Greenways</h3>                                                    
+      <h5>Existing bike routes with signs and existing greenways. </h5>                                                            
       <img class="container one-bottom" src="img/diagram 3-01.jpg">
 
   <script>
@@ -140,73 +107,7 @@
                                    
   L.circleMarker([35.20435,-80.90125], path_o).addTo(map_1)
                                    
-                                   
-  d3.json("mergedFiles.json", function(json) {
-    console.log(json);
-
-    var map_2 = L.mapbox.map('map_2')
-    .setView([35.22732,-80.83827], 12)
-    .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/light-v10'));
-    map_2
-    .scrollWheelZoom.disable();
-                            
-  
-
-    json.data.stations.forEach(function(station){
-      station.lat = +station.lat;
-      station.lng = +station.lon;
-      var path_options = {
-        radius :  6,
-        color : d3.rgb(16,52,166).brighter(),
-        stroke: true,
-        weight : 1,
-        fill : true,
-        Color: d3.rgb(16,52,166).brighter(),
-      };
-      L.circleMarker([station.lat, station.lon], path_options).addTo(map_2).bindPopup("Station_ID: " + station.station_id + "<br>Address: </br>"+ station.address + "<br>Number of Bikes available: </br>" + station.num_bikes_available + "<br>Number of Docks available:</br>" + station.num_docks_available);
-    });
-
-    var map_3 = L.mapbox.map('map_3')
-    .setView([35.22732,-80.83827], 12)
-    .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/light-v10'));
-    map_3
-    .scrollWheelZoom.disable();
-
-    json.data.stations.forEach(function(station){
-      station.lat = +station.lat;
-      station.lng = +station.lon;
-      var inventory_level = station.num_bikes_available / (station.num_bikes_available+station.num_docks_available);
-      var path_options = {
-        radius :  0.5 * (station.num_bikes_available + station.num_docks_available),
-        color : d3.rgb(16,52,166).brighter(),
-        fillColor : (function(){
-          if(station.num_bikes_available_types.electric > 0) {
-            if(inventory_level > 0.5) {
-              return d3.rgb(16,52,166).darker(2)
-            }
-            return d3.rgb(16,52,166)
-          }
-          if(station.num_bikes_available_types.smart > 0) {
-            if(inventory_level > 0.5) {
-              return d3.rgb(245, 141, 66).darker(2)
-            }
-            return d3.rgb(245, 141, 66)
-          }
-          if(station.num_bikes_available_types.classic > 0) {
-            if(inventory_level > 0.5) {
-              return d3.rgb(38, 166, 16).darker(2)
-            }
-            return d3.rgb(38, 166, 16)
-          }
-          //return inventory_level > 0.5? d3.rgb(16,52,166) : d3.rgb(16,52,166).darker(2)
-        })(),
-        stroke: true,
-        weight : 1,
-        opacity : 1,
-        fillOpacity : 0.8
-      };
-      L.circleMarker([station.lat, station.lon], path_options).addTo(map_3);
-    });
+                                  
   });
 
 
