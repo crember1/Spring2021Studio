@@ -92,18 +92,18 @@
 
   var map_1 = L.mapbox.map('map_1')
   .setView([35.20435,-80.90125], 12.25)
-  .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/light-v10'));
+  .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/dark-v10'));
   map_1
   .scrollWheelZoom.disable();
 
                                    
   var path_o = {
         radius :  80,
-        color : d3.rgb(16,52,166).brighter(),
+        color : d3.rgb(252,226,5).brighter(),
         stroke: true,
         weight : 1,
         fill : true,
-        Color: d3.rgb(16,52,166).brighter(),
+        Color: d3.rgb(252,226,5).brighter(),
       };
                                    
   L.circleMarker([35.20435,-80.90125], path_o).addTo(map_1)
