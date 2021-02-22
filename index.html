@@ -123,14 +123,14 @@
   L.mapbox.accessToken = 'pk.eyJ1IjoiZGltcCIsImEiOiJkRnlra3RjIn0.E9CTYzNUEx0yb3dcfV4SiA';
 
   var map_1 = L.mapbox.map('map_1')
-  .setView([35.20435,-80.90125], 13)
+  .setView([35.20435,-80.90125], 12.5)
   .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/light-v10'));
   map_1
   .scrollWheelZoom.disable();
 
                                    
   var path_o = {
-        radius :  50,
+        radius :  60,
         color : d3.rgb(16,52,166).brighter(),
         stroke: true,
         weight : 1,
