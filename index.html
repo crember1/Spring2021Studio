@@ -1,14 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<style>
-</style>
-  
-  
-  
+
   <!-- Basic Page Needs–– -->
   <meta charset="utf-8">
-  <title>Transportation</title>
+  <title>Making a Stacked Area Graph</title>
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -29,17 +25,10 @@
   #map_1,#map_2,#map_3 {
     height: 500px;
   }
-    hr.line1{
-        border: solid; 
-              }
-    
-    
-    
- 
   </style>
 
-  <!-- D3 -->
-  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <!-- D3 v4 -->
+  <script src="https://d3js.org/d3.v4.js"></script>
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/favicon.png">
@@ -49,90 +38,119 @@
 
   <div class="container one-bottom" style="margin-top: 50px">
     <div class="ten columns">
-      <h2>West Boulevard Corridor</h2>
-      <h3>Transportation Study</h3>
+      <h2>Mobility on Demand Systems: Data-Driven Analysis, Simulation, Visualization</h2>
       <p>
-        ARCH STUDIO
+        ARCH 6306/6050, DSBA 6010, ITIS 8010/6010: Wednesdays 6pm-8:30pm, Taught Online
         <br>
-        Coral Rembert | Nicole Surace
-        <br>
-        Professor Anderson
+        Dr. Dimitris Papanikolaou | dpapanik@uncc.edu | Urban Synergetics Lab | https://urbansynergeticslab.net
       </p>
-      <hr class="line1" width="100%">
+    </div>
+    <div class="two columns">
+      <a href="https://urbansynergeticslab.net/"><img class="scale-with-grid" src="img/LabLogo_dark_cropped.png"></a>
+    </div>
   </div>
 
-  <div class="container one-bottom" >
+  <div class="container one-bottom" style="margin-top: 50px">
     <div class="twelve columns">
-      <h3>Location<h3>                   
-      <h5>
-        The location of this study is Charlotte, NC in Mecklenburg County along the West Boulevard Corridor.
-      </h5>
-                         
+      <h3>Arc Graph</h3>
+      <p></p>
+      <div id="my_dataviz"></div>
     </div>
   </div>
 
-  <div id="map_1" class="one-bottom"></div>
 
 
-  <div class="container one-bottom" >
-      <h3>Area of Influence</h3>                             
-      <h5>Areas that the West Boulevard Corridor reaches.</h5>                                                    
-      <img class="container one-bottom" src="img/WestBlvd_BaseMap-Site-Cropped-01.svg">
-      <h3>Highways and Thoroughfares</h3>                             
-      <h5>Major traffic arteries surrounding the West Boulevard Corridor area. </h5>                                                    
-      <img class="container one-bottom" src="img/WestBlvd_BaseMap-Highways and Thoroughfares.svg">                                                          
-      <h3>LYNX Lightrail System and Railroads</h3>                                                    
-      <h5>LYNX BlueLine and Proposed SilverLine routes and stops along with Railroads and their Right of Ways.</h5>                                                            
-      <img class="container one-bottom" src="img/LYNX Lightrail System and Railroads.svg">
-      <h3>Bike Routes and Greenways</h3>                                                    
-      <h5>Existing bike routes with signs and existing greenways. </h5>                                                            
-      <img class="container one-bottom" src="img/Bike Routes and Greenways.svg">
-      <h3>CATS Bus System</h3>                                                            
-      <h5>Charlotte's bus system with routes and stops. </h5>                             
-      <img class="container one-bottom" src="img/CAT Bus Stops.svg"> 
-      <h3>Transportation Accessibility</h3>                                                    
-      <h5>Assessing current transportation accessibility within the Area of Influence using different distance radiuses. </h5>                                                            
-      <img class="container one-bottom" src="img/WestBlvd_BaseMap-Transportation Accessibility.svg">
-      <h3>Greenway Entry Points and Vicinity</h3>                                                    
-      <h5>Assessing current accessibility to Greenway entry points and the distances to destinations along the Greenway. </h5>                                                            
-      <img class="container one-bottom" src="img/GREENWAY ENTRY POINTS AND VICINITY.svg">
-      <h3>Key Nodes Transect</h3>                                                    
-      <h5>Assessing key nodes along West Boulevard and identifying intersections of opportunities along the stems. </h5>                                                            
-      <img class="container one-bottom" src="img/Transportation transect.svg">
-    <div class="row">
-      <h3>Bus Route Transect</h3>                                                    
-      <h5>Assessing the amount of time people are spending on public transportation to get to and from major destinations. </h5>
-      <img class="four columns scale-with-grid quarter-bottom-rel" src="img/STUDIO TRANSECT MAP GOODWILL SHUTTLE.svg">
-      <img class="four columns scale-with-grid quarter-bottom-rel" src="img/WEST BLVD ROUTE.svg">
+    <div class="container one-bottom" style="margin-top: 50px">
+      <div class="four columns offset-by-four">
+        <a href="https://urbansynergeticslab.net/"><img class="scale-with-grid" src="img/LabLogo_dark_cropped.png"></a>
+      </div>
     </div>
-    
-  <script>
-
-  L.mapbox.accessToken = 'pk.eyJ1IjoiZGltcCIsImEiOiJkRnlra3RjIn0.E9CTYzNUEx0yb3dcfV4SiA';
-
-  var map_1 = L.mapbox.map('map_1')
-  .setView([35.20435,-80.90125], 10)
-  .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/satellite-streets-v11'));
-  map_1
-  .scrollWheelZoom.disable();
-
-                                   
-  var path_o = {
-        radius :  30,
-        color : d3.rgb(252,226,5).brighter(),
-        stroke: true,
-        weight : 1,
-        fill : true,
-        Color: d3.rgb(252,226,5).brighter(),
-      };
-                                   
-  L.circleMarker([35.20435,-80.90125], path_o).addTo(map_1)
 
 
+    <script>
+
+    // set the dimensions and margins of the graph
+    var margin = {top: 20, right: 30, bottom: 20, left: 30},
+      width = 600 - margin.left - margin.right,
+      height = 300 - margin.top - margin.bottom;
+
+    // append the svg object to the body of the page
+    var svg = d3.select("#my_dataviz")
+      .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+        .attr("transform",
+              "translate(" + margin.left + "," + margin.top + ")");
+
+    // Read dummy data
+    d3.json("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/data_network.json", function( data) {
+
+      // List of node names
+      var allNodes = data.nodes.map(function(d){return d.name})
+
+      // A linear scale to position the nodes on the X axis
+      var x = d3.scalePoint()
+        .range([0, width])
+        .domain(allNodes)
 
 
-  </script>
+
+      // Add links between nodes. Here is the tricky part.
+      // In my input data, links are provided between nodes -id-, NOT between node names.
+      // So I have to do a link between this id and the name
+      var idToNode = {};
+      data.nodes.forEach(function (n) {
+        idToNode[n.id] = n;
+      });
+      // Cool, now if I do idToNode["2"].name I've got the name of the node with id 2
+
+      // Add the links
+      svg
+        .selectAll('mylinks')
+        .data(data.links)
+        .enter()
+        .append('path')
+        .attr('d', function (d) {
+          start = x(idToNode[d.source].name)    // X position of start node on the X axis
+          end = x(idToNode[d.target].name)      // X position of end node
+          return ['M', start, height-30,    // the arc starts at the coordinate x=start, y=height-30 (where the starting node is)
+            'A',                            // This means we're gonna build an elliptical arc
+            (start - end)/2, ',',    // Next 2 lines are the coordinates of the inflexion point. Height of this point is proportional with start - end distance
+            (start - end)/2, 0, 0, ',',
+            start < end ? 1 : 0, end, ',', height-30] // We always want the arc on top. So if end is before start, putting 0 here turn the arc upside down.
+            .join(' ');
+        })
+        .style("fill", "none")
+        .attr("stroke", "black")
 
 
-</body>
-</html>
+        // Add the circle for the nodes
+        svg
+          .selectAll("mynodes")
+          .data(data.nodes)
+          .enter()
+          .append("circle")
+            .attr("cx", function(d){ return(x(d.name))})
+            .attr("cy", height-30)
+            .attr("r", 6)
+            .style("fill", "red")
+
+        // And give them a label
+        svg
+          .selectAll("mylabels")
+          .data(data.nodes)
+          .enter()
+          .append("text")
+            .attr("x", function(d){ return(x(d.name))})
+            .attr("y", height-10)
+            .text(function(d){ return(d.name)})
+            .style("text-anchor", "middle")
+
+    })
+
+    </script>
+
+
+  </body>
+  </html>
