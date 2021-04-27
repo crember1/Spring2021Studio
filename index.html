@@ -147,22 +147,6 @@
             .text(function(d){ return(d.name)})
             .style("text-anchor", "middle")
       
-      // Add the highlighting functionality
-    nodes
-      .on('mouseover', function (d) {
-        // Highlight the nodes: every node is green except of him
-        nodes.style('fill', "#B8B8B8")
-        d3.select(this).style('fill', '#69b3b2')
-        // Highlight the connections
-        links
-          .style('stroke', function (link_d) { return link_d.source === d.id || link_d.target === d.id ? '#69b3b2' : '#b8b8b8';})
-          .style('stroke-width', function (link_d) { return link_d.source === d.id || link_d.target === d.id ? 4 : 1;})
-      })
-      .on('mouseout', function (d) {
-        nodes.style('fill', "#69b3a2")
-        links
-          .style('stroke', 'black')
-          .style('stroke-width', '1')
 
     })
 
